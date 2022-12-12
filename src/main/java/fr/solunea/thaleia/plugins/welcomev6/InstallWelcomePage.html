@@ -1,0 +1,22 @@
+<html
+	xmlns:wicket="http://git-wip-us.apache.org/repos/asf/wicket/repo?p=wicket.git;a=blob_plain;f=wicket-core/src/main/resources/META-INF/wicket-1.5.xsd;hb=master">
+<body>
+	<wicket:extend>
+		<span wicket:id="feedback"></span>
+		<div class="row">
+			<div class="col-md-12">
+				Page d'accueil actuelle de Thaleia : <span wicket:id="welcomePageId"></span>
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="col-md-12">
+				<a class="btn btn-blue-sm" wicket:id="installPluginPage">Installer la page
+				d'accueil de ce plugin</a> <a class="btn btn-blue-sm" wicket:id="installDefaultPage">Installer
+				la page d'accueil par défaut de Thaleia</a>
+			</div>
+		</div>
+		<div class="row">Paramètres du plugin WelcomeV6 :</div>
+		<div wicket:id="parametersPanel"></div>
+	</wicket:extend>
+</body>
+</html>

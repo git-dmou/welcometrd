@@ -1,0 +1,195 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+    <!--Page paramètres d'un contenu-->
+    <div class="d-flex align-items-stretch h-100 fh-100 w-100 flex-column">
+
+        <nav aria-label="breadcrumb" class="mb-4">
+            <a wicket:id="btnBack" class="breadcrumb btn-link primary-color" id="nav-home">
+                <svg class="icon-tiny fill-thaleia align-self-center mr-3">
+                    <use href="#icon-arrow-l"></use>
+                </svg>
+                <wicket:message key="back">Retour</wicket:message>
+            </a>
+        </nav>
+
+        <h2 class="fadeIn">
+            <span wicket:id="versionTitle">Titre de la formation</span>
+        </h2>
+
+        <!--Boutons d'action-->
+        <div class="row fadeIn mb-5">
+            <div class="col">
+                <div class="d-flex panel featured p-4 rounded mt-3 mt-xl-4">
+                    <div class="media w-100">
+                        <div class="d-flex align-self-center w-100">
+                            <!--Visualiser-->
+                            <a wicket:id="previewLink" class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                               type="button" href="#">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                        <wicket:message key="previewLabel">Visualiser</wicket:message>
+                                    </span>
+                                <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                            <use href="#icon-preview"></use>
+                                        </svg>
+                                    </span>
+                            </a>
+                            <!--Télécharger la source-->
+                            <a wicket:id="sourceLink" class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                               type="button" href="#">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                        <wicket:message key="sourceLabel">Télécharger la source</wicket:message>
+                                    </span>
+                                <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                            <use href="#icon-download-1"></use>
+                                        </svg>
+                                    </span>
+                            </a>
+                            <!--Exporter-->
+                            <a wicket:id="exportLink" class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                               type="button" href="#">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                        <wicket:message key="exportLabel">Exporter</wicket:message>
+                                    </span>
+                                <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                            <use href="#icon-download"></use>
+                                        </svg>
+                                    </span>
+                            </a>
+                            <!--Publier-->
+                            <a wicket:id="publishLink" class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                               type="button" href="#">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                        <wicket:message key="publishLabel">Publier</wicket:message>
+                                    </span>
+                                <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                            <use href="#icon-publish"></use>
+                                        </svg>
+                                    </span>
+                            </a>
+                            <!--Suivi temps réel-->
+                            <a wicket:id="monitorLink" class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                               type="button" href="#">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                        <wicket:message key="monitorLinkLabel">Suivi temps réel</wicket:message>
+                                    </span>
+                                <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                            <!--TODO : Ajouter l'icone quand john l'aura produite-->
+                                            <use href="#icon-publish"></use>
+                                        </svg>
+                                    </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="mb-5 fadeInUp">
+            <wicket:message key="formTitle">Modifier les propriétés de la formation</wicket:message>
+        </h4>
+        <form wicket:id="form" class="input-thaleia mb-3 fadeIn delayed">
+            <div class="input-group mb-3 fadeInUp">
+                <div class="input-group-prepend col-3 col-xl-2 pl-0">
+                        <span class="input-group-text font-weight-normal pl-0">
+                            <wicket:message key="idLabel">Identifiant</wicket:message>
+                        </span>
+                </div>
+                <input wicket:id="contentIdentifier" id="fname"
+                       class="form-control py-4 px-3 border-0 rounded btn-link fadeIn"
+                       type="text" name="fname"
+                       aria-label="Identifiant">
+            </div>
+            <div class="input-group mb-3 fadeInUp">
+                <div class="input-group-prepend col-3 col-xl-2 pl-0">
+                        <span class="input-group-text font-weight-normal pl-0">
+                            <wicket:message key="lastEditDateLabel">Dernière mise à jour</wicket:message>
+                        </span>
+                </div>
+                <input wicket:id="lastEditDate" id="lname"
+                       class="form-control py-4 px-3 border-0 rounded btn-link fadeIn"
+                       type="text" name="lname"
+                       aria-label="Nom">
+            </div>
+            <div wicket:id="descriptionEditPanel" class="input-group mb-3 fadeInUp">
+                <!--Description-->
+            </div>
+            <div wicket:id="passingScore" class="input-group mb-3 fadeInUp">
+                <!--Note de passage-->
+            </div>
+            <div wicket:id="scorm" class="input-group mb-3 fadeInUp">
+                <!--Communication SCORM-->
+            </div>
+            <div wicket:id="format" class="input-group mb-3 fadeInUp">
+                <!--Format de la formation-->
+            </div>
+            <div wicket:id="debugMode" class="input-group mb-3 fadeInUp"></div>
+
+            <div class="w-100 d-flex align-items-center justify-content-between fadeIn">
+                <div class="d-flex ml-auto">
+                    <div class="text-right">
+                        <!--Bouton Annuler-->
+                        <a wicket:id="cancel" type="button" href="#"
+                           class="btn-thaleia btn p-4 text-center fadeIn error">
+                                <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                    <wicket:message key="cancelLabel">Annuler</wicket:message>
+                                </span>
+                            <span class="ml-0 ml-md-2 ml-lg-3 align-self-center">
+                                    <svg class="icon-small">
+                                        <use href="#icon-quit"></use>
+                                    </svg>
+                                </span>
+                        </a>
+                        <!--Bouton Enregistrer-->
+                        <a wicket:id="save" type="button" href="#" class="btn-thaleia btn p-4 text-center fadeIn ml-2">
+                                <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                    <wicket:message key="saveLabel">Enregistrer</wicket:message>
+                                </span>
+                            <span class="ml-0 ml-md-2 ml-lg-3 align-self-center">
+                                    <svg class="icon-small">
+                                        <use href="#icon-save"></use>
+                                    </svg>
+                                </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="d-flex align-items-center my-4">
+            <h4 class="fadeIn pl-0 mb-0">
+                <wicket:message key="publicationsTitle">Gérer les publications de cette formation</wicket:message>
+            </h4>
+            <a wicket:id="addPublicationLink" wicket:message="title:help_9"
+               class="btn-thaleia btn text-center fadeIn ml-4 p-3"
+               type="button" href="#">
+                <svg class="icon-small">
+                    <use href="#icon-add"></use>
+                </svg>
+            </a>
+            <a wicket:id="updatePublicationLink" wicket:message="title:help_8"
+               class="btn-thaleia btn text-center fadeIn m-auto ml-4 p-3"
+               type="button" href="#">
+                <svg class="icon-small">
+                    <use href="#icon-update"></use>
+                </svg>
+            </a>
+        </div>
+
+        <!--Liste des publications-->
+        <div wicket:id="publications"></div>
+
+        <!--Liste des versions-->
+        <div wicket:id="versions"></div>
+
+        <!--traduction automatique du module-->
+        <div wicket:id="moduleTranslation"></div>
+
+
+    </div>
+
+</wicket:panel>

@@ -1,0 +1,173 @@
+<html
+        xmlns:wicket="http://git-wip-us.apache.org/repos/asf/wicket/repo?p=wicket.git;a=blob_plain;f=wicket-core/src/main/resources/META-INF/wicket-1.5.xsd;hb=master">
+<body>
+<wicket:extend>
+    <div class="w-100 d-flex flex-column align-items-stretch justify-content-between padding-navbar thaleia-dialogue">
+        <span wicket:id="feedback"></span>
+
+        <div class="container-lg align-self-center px-3 px-xl-5 py-3 py-lg-4 py-xl-5 m-auto delayed">
+
+            <nav aria-label="breadcrumb" class="mb-4" wicket:id="pluginMenu">Menu de navigation dans le	plugin</nav>
+            <h2 class="fadeIn"><span wicket:id="versionTitle">Titre de la formation</span></h2>
+
+            <div class="row fadeIn mb-5">
+                <div class="col">
+                    <div class="d-flex panel featured p-4 rounded mt-3 mt-xl-4">
+                        <div class="media w-100">
+                            <div class="d-flex align-self-center w-100">
+                                <button wicket:id="previewLink" type="button"
+                                        class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                                        wicket:message="title:help_1">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3"><wicket:message key="previewLabel">Prévisualiser</wicket:message></span>
+                                    <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                        <use href="#icon-preview"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button wicket:id="sourceLink" type="button"
+                                        class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                                        wicket:message="title:help_2">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3"> <wicket:message key="sourceLabel">Télécharger la source</wicket:message></span>
+                                    <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                        <use href="#icon-download-1"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button wicket:id="exportLink"
+                                        class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                                        wicket:message="title:help_3">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3"> <wicket:message key="exportLabel">Exporter </wicket:message></span>
+                                    <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                        <use href="#icon-download"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button wicket:id="publishLink"
+                                        class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                                        wicket:message="title:help_4">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3"> <wicket:message key="publishLabel">Publier</wicket:message></span>
+                                    <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                        <use href="#icon-publish"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button wicket:id="monitorLink"
+                                        class="w-100 btn-thaleia btn p-4 text-center fadeIn mx-1 d-flex align-items-center justify-content-center"
+                                        wicket:message="title:help_5">
+                                    <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3"> <wicket:message
+                                            key="monitorLinkLabel">Suivi temps réel</wicket:message></span>
+                                    <span class="ml-0 align-self-center">
+                                        <svg class="icon-small">
+                                        <use href="#icon-publish"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form wicket:id="form" class="input-thaleia mb-3 fadeIn delayed">
+                <h4 class="mb-5 fadeInUp"><wicket:message key="formTitle">Modifier les propri�t�s de la formation</wicket:message></h4>
+
+                <div class="input-group mb-3 fadeInUp">
+                    <div class="input-group-prepend col-3 col-xl-2 pl-0">
+                        <span class="input-group-text font-weight-normal pl-0">
+                            <wicket:message key="idLabel">Identifiant</wicket:message>
+                        </span>
+                    </div>
+                    <input type="text" wicket:id="contentIdentifier"
+                           class="form-control py-4 px-3 border-0 rounded btn-link fadeIn"/>
+                </div>
+
+                <h3 class="mb-5 fadeInUp" wicket:id="title">Edit the properties of this content</h3>
+
+                <div class="input-group mb-3 fadeInUp">
+                    <div class="input-group-prepend col-3 col-xl-2 pl-0">
+                        <span class="input-group-text font-weight-normal pl-0">
+                            <wicket:message key="lastEditDateLabel">Dernière mise à jour
+                            </wicket:message>
+                        </span>
+                    </div>
+                    <input type="text" wicket:id="lastEditDate"
+                           class="form-control py-4 px-3 border-0 rounded btn-link fadeIn" disabled/>
+                </div>
+
+                <div class="input-group mb-3 fadeInUp" wicket:id="descriptionEditPanel"></div>
+                <div class="input-group mb-3 fadeInUp" wicket:id="passingScore"></div>
+                <div class="input-group mb-3 fadeInUp" wicket:id="scorm"></div>
+                <div class="input-group mb-3 fadeInUp" wicket:id="format"></div>
+                <div class="input-group mb-3 fadeInUp" wicket:id="debugMode"></div>
+
+                <div class="w-100 d-flex align-items-center justify-content-between fadeIn">
+                    <div class="d-flex ml-auto">
+                        <div class="text-right">
+                            <!--Bouton Annuler-->
+                            <button wicket:id="cancel" type="submit" name="submit" wicket:message="title:help_6"
+                                    class="btn-thaleia btn p-4 text-center fadeIn error">
+                                <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                <wicket:message key="cancelLabel">Annuler</wicket:message>
+                                </span>
+                                <span class="ml-0 ml-md-2 ml-lg-3 align-self-center">
+                                    <svg class="icon-small">
+                                    <use href="#icon-quit"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                            <!--Bouton Enregistrer-->
+                            <button wicket:id="save" type="submit" name="submit" wicket:message="title:help_7"
+                                    class="btn-thaleia btn p-4 text-center fadeIn ml-2" id="save153"
+                                    wicketpath="content_contentPanel_editPropertiesPanel_form_save">
+                                <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                <wicket:message key="saveLabel">Enregistrer</wicket:message>
+                                </span>
+                                <span class="ml-0 ml-md-2 ml-lg-3 align-self-center">
+                                    <svg class="icon-small">
+                                    <use href="#icon-save"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <wicket:message key="publicationsTitle"></wicket:message>
+                <div class="w-100 d-flex align-items-center justify-content-between fadeIn">
+                    <div class="d-flex ml-auto">
+                        <div class="text-right">
+                            <button wicket:message="title:help_8" wicket:id="updatePublicationLink"
+                                    class="btn-thaleia btn p-4 text-center fadeIn">
+                                <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                    <span class="ml-0 ml-md-2 ml-lg-3 align-self-center">
+                                        <svg class="icon-small">
+                                        <use href="#icon-refresh"></use>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </button>
+
+                            <a href="#" wicket:message="title:help_9" wicket:id="addPublicationLink"
+                               class="btn-thaleia btn p-4 text-center fadeIn">
+                               <span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+                                +
+                               </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div wicket:id="publications"></div>
+                <div class="w-100" wicket:id="versions"></div>
+            </div>
+        </div>
+    </div>
+
+</wicket:extend>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".decobar").hide();
+		});
+	</script>
+	<div class="d-flex backArrow mb-3">
+		<a wicket:id="backLink" href="#" class="breadcrumb btn-link primary-color">
+			<img wicket:id="ico_backarrow_header" />
+			<span>
+				<wicket:message key="backLinkLabel">Retour</wicket:message>
+			</span>
+		</a>
+	</div>
+	<div class="d-flex">
+		<h5>
+			<span wicket:id="menuLabel">Titre de ce menu</span>
+		</h5>
+	</div>
+</wicket:panel>

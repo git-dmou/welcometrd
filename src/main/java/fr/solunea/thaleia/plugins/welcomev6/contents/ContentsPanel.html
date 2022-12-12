@@ -1,0 +1,41 @@
+﻿<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+    <!--Tableau de données-->
+    <table wicket:id="datatable"
+           class="table table-thaleia font-weight-light fadeIn px-3 my-3 order-last table-hover">
+    </table>
+    <!--Filter by name-->
+    <form wicket:id="form" class="input-group input-thaleia fadeIn">
+
+        <input wicket:id="filter" id="inputSearch" class="form-control py-4 border-0 rounded search btn-link"
+               type="text" required="required" aria-label="Text input with segmented dropdown button">
+<!--        Pour l'instant le bouton "effacer la recherche" n'est pas lié au wicket et je ne sais comment le faire.
+            Du coup, au vu des impératifs on va le mettre de côté et le traiter plus tard.-->
+<!--        <svg class="icon-quit" onclick="document.getElementById('inputSearch').value = ''">-->
+<!--            <use href="#icon-quit"></use>-->
+<!--        </svg>-->
+        <svg wicket:id="search" class="icon-search align-self-center">
+            <use href="#icon-search"></use>
+        </svg>
+
+        <!--Locale selector-->
+        <button class="btn btn-link btn-primary dropdown-toggle border-0 ml-3 text-decoration-none"
+                id="content-lang-selector-btn" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            <span wicket:id="currentSelectedLang" class="mr-1"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div id="content-lang-selector-dropdown" class="dropdown-menu">
+            <li wicket:id="langSelectorRow">
+                <a wicket:id="langSelectorLink" class="dropdown-item" href="#" onclick="closeDropdown()">
+                    <span wicket:id="linktext"></span>
+                </a>
+            </li>
+        </div>
+        <script>
+            function closeDropdown() {
+                $('.dropdown-menu').dropdown('hide')
+            }
+        </script>
+    </form>
+</wicket:panel>

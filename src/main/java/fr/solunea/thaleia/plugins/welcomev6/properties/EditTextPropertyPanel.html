@@ -1,0 +1,20 @@
+﻿<!-- CE CODE HTML NE PERMET PAS A WICKET D'INSTALLER L'ECOUTEUR JS SUR L'EVENEMENT ONCHANGE  -->
+<!--<wicket:panel xmlns:wicket="http://wicket.apache.org">-->
+
+<!--	<div class="input-group mb-3 fadeInUp">-->
+<!--		<div class="input-group-prepend col-auto col-xl-2 pl-0">-->
+<!--			<span wicket:id="property.name" class="input-group-text font-weight-normal pl-0"></span>-->
+<!--		</div>-->
+<!--		<input wicket:id="value" id="fname" type="text"-->
+<!--			   class="form-control py-4 px-3 border-0 rounded btn-link fadeIn"-->
+<!--			   aria-label="Note de passage" name="fname">-->
+<!--	</div>-->
+
+<!--</wicket:panel>-->
+
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+	<label for="name" class="input-group-prepend col-3 col-xl-2 pl-0">
+		<span class="input-group-text font-weight-normal pl-0" wicket:id="property.name"></span>
+	</label>
+	<input type="text" wicket:id="value" class="form-control py-4 px-3 border-0 rounded btn-link fadeIn" />
+</wicket:panel>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html
+	xmlns:wicket="http://git-wip-us.apache.org/repos/asf/wicket/repo?p=wicket.git;a=blob_plain;f=wicket-core/src/main/resources/META-INF/wicket-1.5.xsd;hb=master">
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+	<wicket:panel>
+
+		<!--Panneau des messages d'avertissement et d'erreur.-->
+		<div wicket:id="feedbackPanel" class="delayed"></div>
+
+		<div class="text-center mt-4 mt-lg-4 mt-xl-5 delayed">
+
+			<!--Bouton retour-->
+			<a wicket:id="backLink" type="button" class="btn-thaleia btn p-4 text-center fadeIn">
+				<span class="mr-0 mr-md-2 mr-lg-3 align-self-center">
+					<svg class="icon-small">
+						<use href="#icon-arrow-l"></use>
+					</svg>
+				</span>
+				<wicket:message key="backLinkLabel">Retour</wicket:message>
+			</a>
+
+			<!--Bouton Télécharger-->
+			<a wicket:id="download" type="button" class="btn-thaleia btn p-4 text-center fadeIn">
+				<wicket:message key="download">Téléchargement</wicket:message>
+				<span class="ml-0 ml-md-2 ml-lg-3 align-self-center">
+					<svg class="icon-small">
+						<use href="#icon-download-1"></use>
+					</svg>
+				</span>
+			</a>
+		</div>
+
+		<wicket:child />
+
+	</wicket:panel>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+    <!--Importer votre personnalisation-->
+    <div wicket:id="uploadForm"></div>
+
+    <!--Télécharger la personnalisation par défaut ou la personnalisation active-->
+    <div class="row fadeInUp mt-0 mt-lg-3 px-2">
+        <!--Editeur de personnalisation-->
+        <div class="col mt-3 mt-lg-4 px-2">
+            <a href="customization-editor/index.html"
+               class="d-flex justify-content-between panel btn-thaleia p-4 rounded h-100" target="_blank">
+                <div class="row d-lg-flex w-100 m-0">
+                    <div class="col-12 col-lg align-self-center">
+                        <h5 class="mb-0 text-center text-lg-left font-weight-normal">
+                            <wicket:message key="customisationEditor">Éditeur de personnalisation</wicket:message>
+                        </h5>
+                    </div>
+                    <div class="col-12 col-lg-auto order-first order-lg-last text-center mb-3 mb-lg-0 align-self-center">
+                        <svg class="icon-large m-auto">
+                            <use href="#icon-theme-new"></use>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!--Télécharger la personnalisation active-->
+        <div wicket:id="downloadActiveCustomizationHTMLElement" class="col mt-3 mt-lg-4 px-2">
+            <a wicket:id="downloadActiveCustomization" href="#" class="d-flex justify-content-between panel btn-thaleia p-4 rounded h-100">
+                <div class="row d-lg-flex w-100 m-0">
+                    <div class="col-12 col-lg align-self-center">
+                        <h5 class="mb-0 text-center text-lg-left font-weight-normal">
+                            <wicket:message key="downloadCurrentCustomisation">Télécharger la
+                                <br> personnalisation <b>active</b></wicket:message>
+                        </h5>
+                    </div>
+                    <div class="col-12 col-lg-auto order-first order-lg-last text-center mb-3 mb-lg-0 align-self-center">
+                        <svg class="icon-large m-auto">
+                            <use href="#icon-theme-current"></use>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</wicket:panel>

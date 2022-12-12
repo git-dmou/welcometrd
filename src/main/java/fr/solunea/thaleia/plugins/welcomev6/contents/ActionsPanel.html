@@ -1,0 +1,76 @@
+﻿<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="d-flex btn-link-group align-items-center justify-content-center w-100">
+		<a wicket:id="previewLink" target="_blank"
+			 class="btn-link rounded d-flex px-1 py-2 align-items-center justify-content-between">
+			<br>
+			<span class="ml-2 position-absolute">
+				<wicket:message key="previewLabel">Aperçu</wicket:message>
+			</span>
+			<svg class="icon-small mx-2 align-self-center">
+				<use href="#icon-play"></use>
+			</svg>
+		</a>
+		<div wicket:id="editLink"
+			 class="btn-link rounded d-flex px-1 py-2 align-items-center justify-content-between">
+			<br>
+			<span class="ml-2 position-absolute">
+				<wicket:message key="editLabel">Éditer</wicket:message>
+			</span>
+			<svg class="icon-small mx-2 align-self-center">
+				<use href="#icon-edit"></use>
+			</svg>
+		</div>
+		<div wicket:id="exportLink"
+			 class="btn-link rounded d-flex px-1 py-2 align-items-center justify-content-between">
+			<br>
+			<span class="ml-2 position-absolute">
+				<wicket:message key="exportLabel">Exporter</wicket:message>
+			</span>
+			<svg class="icon-small mx-2 align-self-center">
+				<use href="#icon-download"></use>
+			</svg>
+		</div>
+		<div wicket:id="publishLink"
+			 class="btn-link rounded d-flex px-1 py-2 align-items-center justify-content-between">
+			<br>
+			<span class="ml-2 position-absolute">
+				<wicket:message key="publishLabel">Publier</wicket:message>
+			</span>
+			<svg class="icon-small mx-2 align-self-center">
+				<use href="#icon-publish"></use>
+			</svg>
+		</div>
+		<div wicket:id="editPropertiesLink"
+			 class="btn-link rounded d-flex px-1 py-2 align-items-center justify-content-between">
+			<br>
+			<span class="ml-2 position-absolute">
+				<wicket:message key="editPropertiesLabel">Paramétrer</wicket:message>
+			</span>
+			<svg class="icon-small mx-2 align-self-center">
+				<use href="#icon-config"></use>
+			</svg>
+		</div>
+		<div wicket:id="deleteLink"
+			 class="btn-link error rounded d-flex px-1 py-2 align-items-center justify-content-between">
+			<br>
+			<span class="ml-2 position-absolute">
+				<wicket:message key="deleteLabel">Supprimer</wicket:message>
+			</span>
+			<svg class="icon-small mx-2 align-self-center">
+				<use href="#icon-trash"></use>
+			</svg>
+		</div>
+		<div wicket:id="updatePublicationLink"
+			 class="btn-link rounded d-flex px-1 py-2 align-items-center justify-content-between">
+			<br>
+			<span class="ml-2 position-absolute">
+				<wicket:message key="updatePublicationLabel">Mettre à jour les publications</wicket:message>
+			</span>
+			<svg class="icon-small mx-2 align-self-center">
+				<use href="#icon-refresh"></use>
+			</svg>
+		</div>
+	</div>
+
+</wicket:panel>

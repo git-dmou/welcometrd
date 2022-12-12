@@ -1,0 +1,75 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+    <table class="table table-thaleia table-hover font-weight-light my-4 fadeIn">
+        <thead>
+        <tr>
+            <th scope="col" class="sort sticky-top" data-sort="title" role="button" aria-pressed="false"
+                aria-hidden="false">
+                <wicket:message key="head.name">Contenu publié</wicket:message>
+            </th>
+            <th scope="col" class="sort sticky-top text-center" data-sort="date-month" role="button"
+                aria-pressed="false"
+                aria-hidden="false">
+                <wicket:message key="head.date">Date de publication</wicket:message>
+            </th>
+            <th scope="col" class="sort sticky-top text-center" data-sort="date-month" role="button"
+                aria-pressed="false" aria-hidden="false">
+                <wicket:message key="head.active">Actif</wicket:message>
+            </th>
+            <th scope="col" class="sort sticky-top text-center" data-sort="date-month" role="button"
+                aria-pressed="false" aria-hidden="false">
+                <wicket:message key="head.public_access">Accès public</wicket:message>
+            </th>
+            <th scope="col" class="sort sticky-top text-center" role="button" aria-pressed="false"
+                aria-hidden="false">
+                <wicket:message key="head.private_accesses">Accès privés</wicket:message>
+            </th>
+            <th scope="col" class="sort sticky-top text-center" role="button" aria-pressed="false"
+                aria-hidden="false" style="width:180px;">
+                Actions
+            </th>
+        </tr>
+        </thead>
+        <tbody wicket:id="objects" class="list">
+        <tr class="fadeInUp">
+            <td>
+                <a class="btn" wicket:id="previewLink"> </a>
+            </td>
+            <td class="date-month text-center">
+                <span wicket:id="date"></span>
+            </td>
+            <td class="title text-center">
+                <div class="custom-control custom-checkbox">
+                    <input wicket:id="active" id="active" class="custom-control-input" type="checkbox"/>
+                    <label class="custom-control-label" for="active"></label>
+                </div>
+            </td>
+            <td class="text-center">
+                <div class="custom-control custom-checkbox">
+                    <input wicket:id="publicAccess" id="publicAccess"
+                           type="checkbox" class="custom-control-input">
+                    <label class="custom-control-label" for="publicAccess"></label>
+                </div>
+            </td>
+            <td class="text-center">
+                <span wicket:id="privateAccesses"></span>
+            </td>
+            <td class="actions">
+                <div class="d-flex btn-link-group align-items-center justify-content-center w-100">
+                    <div wicket:id="editLink"
+                         class="btn-link rounded d-flex px-1 py-2 align-items-center justify-content-between"
+                         wicket:message="title:help_edit">
+                        <br>
+                        <span class="ml-2 position-absolute"><wicket:message
+                                key=editButtonLabel>Modifier</wicket:message></span>
+                        <svg class="icon-small mx-2 align-self-center">
+                            <use href="#icon-edit"></use>
+                        </svg>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</wicket:panel>

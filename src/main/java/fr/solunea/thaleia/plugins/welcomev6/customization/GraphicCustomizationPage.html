@@ -1,0 +1,63 @@
+<!doctype html>
+<html
+	xmlns:wicket="http://git-wip-us.apache.org/repos/asf/wicket/repo?p=wicket.git;a=blob_plain;f=wicket-core/src/main/resources/META-INF/wicket-1.5.xsd;hb=master">
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+	<wicket:extend>
+		<div class="w-100 d-flex flex-column align-items-stretch justify-content-between padding-navbar thaleia-dialogue">
+
+			<div wicket:id="feedbackPanel">Le panneau des messages d'avertissement et d'erreur</div>
+			<div class="container-lg align-self-center px-3 px-xl-5 py-3 py-lg-4 py-xl-5 m-auto delayed">
+				<div class="d-flex flex-column justify-content-center">
+					<span wicket:id="pluginMenu">Menu de navigation dans le	plugin</span>
+					<h2 class="primary-color font-weight-bold gradient-text">
+						<wicket:message key="title1">Personnaliser l'aspect de vos formations !</wicket:message>
+					</h2>
+					<h4 class="my-4">
+						<span class="iconGray">1.</span>
+						<wicket:message key="help_subtitle_1">Télécharger l'archive.</wicket:message>
+					</h4>
+					<p><wicket:message key="help_text_1">Télécharger l'archive qui contient les fichiers de personnalisation par défaut</wicket:message></p>
+					<a href="#" wicket:id="downloadDefault" class="btn-thaleia btn btn-group p-4 fadeIn align-items-center justify-content-center">
+						<span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+							<wicket:message	key="downloadDefaultLabel">Télécharger l'archive</wicket:message>
+						</span>
+						<span class="ml-2 align-self-center">
+							<img wicket:id="ico_action_export" />
+						</span>
+					</a>
+					<div class="w-100" wicket:id="colDownload">
+						<wicket:message key="help_text_6">ou bien la précédente archive que vous avez importé.</wicket:message>
+						<button class="btn-thaleia btn p-4 text-center fadeIn" wicket:id="downloadBtn">
+							<span class="mr-2 ml-0 mr-md-2 ml-lg-0 mr-lg-3">
+								<wicket:message key="downloadDefaultLabel">Télécharger l'archive</wicket:message>
+							</span>
+							<span class="ml-0 ml-md-2 ml-lg-3 align-self-center">
+								<img wicket:id="ico_action_export2" />
+							</span>
+						</button>
+					</div>
+					<h4 class="my-4">
+						<span class="iconGray">2.</span>
+						<wicket:message key="help_subtitle_2">Personnaliser les éléments selon vos envies.</wicket:message>
+					</h4>
+					<p><wicket:message key="help_text_2">texte</wicket:message></p>
+					<p><wicket:message key="help_text_3">Personnalisation par defaut</wicket:message></p>
+					<p><wicket:message key="help_text_4"></wicket:message></p>
+					<h4 class="mb-4">
+						<span class="iconGray">3.</span>
+						<wicket:message key="help_subtitle_3">Enregistrer une nouvelle personnalisation :</wicket:message>
+					</h4>
+					<div wicket:id="colUpload">
+						<div wicket:id="uploadForm"></div>
+					</div>
+				</div>
+			</div>
+			<div class="overlay"></div>
+		</div>
+
+	</wicket:extend>
+</body>
+</html>

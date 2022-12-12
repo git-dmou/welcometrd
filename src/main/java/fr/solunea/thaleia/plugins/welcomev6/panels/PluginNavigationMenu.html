@@ -1,0 +1,113 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+    <ul id="plugin-navigation-menu" class="list-unstyled py-3 text-right font-weight-light text-nowrap w-100">
+        <li wicket:id="create" class="active">
+            <a href="#" data-toggle="tooltip" data-trigger="hover" data-placement="right"
+               wicket:message="title:create.label">
+                <span>
+                    <wicket:message key="create.label">Créer</wicket:message>
+                </span>
+                <span class="ml-3">
+                    <svg class="icon-small fill-white">
+                        <use href="#icon-new"></use>
+                    </svg>
+                </span>
+            </a>
+        </li>
+        <li wicket:id="modules">
+            <a href="#" data-toggle="tooltip" data-trigger="hover" data-placement="right"
+               wicket:message="title:myProductions.label">
+                <span>
+                    <wicket:message key="myProductions.label">Mes productions</wicket:message>
+                </span>
+                <span class="ml-3">
+                    <svg class="icon-small fill-white">
+                        <use href="#icon-folder"></use>
+                    </svg>
+                </span>
+            </a>
+        </li>
+        <li wicket:id="parameters">
+            <a href="#" data-toggle="tooltip" data-trigger="hover" data-placement="right"
+               wicket:message="title:parameters.label">
+                <span>
+                    <wicket:message key="parameters.label">Paramètres</wicket:message>
+                </span>
+                <span class="ml-3">
+                    <svg class="icon-small fill-white">
+                        <use href="#icon-palette"></use>
+                    </svg>
+                </span>
+            </a>
+        </li>
+        <li wicket:id="resources">
+            <a href="#" data-toggle="tooltip" data-trigger="hover" data-placement="right"
+               wicket:message="title:resources.label">
+                <span>
+                    <wicket:message key="resources.label">Ressources</wicket:message>
+                </span>
+                <span class="ml-3">
+                    <svg class="icon-small fill-white" style="width:15px!important;">
+                        <use href="#icon-link"></use>
+                    </svg>
+                </span>
+            </a>
+        </li>
+    </ul>
+
+    <script type="text/javascript">
+        /**
+         * Mets la classe active sur un des éléments et la retire des autres.
+         * @detail Cette fonction est appelée depuis le java.
+         * @param {String} elem élément à "activer".
+         */
+        function activate(elem) {
+            let elems = ['create', 'modules', 'parameters', 'resources'];
+            for(let i=0; i<elems.length; i++) {
+                if(elems[i] === elem) {
+                    $('[id^='+elems[i]+']').addClass("active");
+                } else {
+                    $('[id^='+elems[i]+']').removeClass("active");
+                }
+            }
+        }
+
+        $( document ).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $( document ).ready(function() {
+            $('#nav-help, #closeTutorial, .close-tuto, #nav-menu').click(function () {
+                if ($("#sidebar").hasClass("shrinked")) {
+                    $('[data-toggle="tooltip"]').tooltip('enable');
+                }
+                else {
+                    $('[data-toggle="tooltip"]').tooltip('disable');
+
+                }
+            });
+        });
+
+        function mediaQueryTooltips(x) {
+            if (x.matches) { // If media query matches
+                $( document ).ready(function() {
+                    $('[data-toggle="tooltip"]').tooltip('enable');
+                });
+            } else {
+                $( document ).ready(function() {
+                    $('[data-toggle="tooltip"]').tooltip('disable');
+                });
+            }
+        }
+
+        var x = window.matchMedia("(max-width: 1350px)")
+        mediaQueryTooltips(x) // Call listener function at run time
+        x.addListener(mediaQueryTooltips) // Attach listener function on state changes
+
+
+        function hideLoader() {
+            $("#loader").addClass("hide");
+        }
+    </script>
+
+</wicket:panel>

@@ -1,0 +1,23 @@
+#welcome v6
+
+#repertoires :
+font/
+fonts/
+target/
+.idea/
+img/
+doc/
+documentation/
+
+#fichiers :
+*.zip
+*.pdf
+*.xls
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.ttf
+*.eot
+*.woff
+*.woff2
