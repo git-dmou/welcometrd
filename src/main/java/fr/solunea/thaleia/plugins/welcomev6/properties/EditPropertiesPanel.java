@@ -62,8 +62,12 @@ public abstract class EditPropertiesPanel extends Panel {
 
     private Component moduleTranslationPanel;
     private int contentVersionId;
+    private int currentContentVersionId;
     private boolean editedNotSaved = false;
     private final IModel<Locale> locale;
+
+//    private ContentVersionDao contentVersionDao;
+
 
     protected EditPropertiesPanel(IModel<Content> content, IModel<Locale> locale, ActionsOnContent actionsOnContent,
                                   String id, ThaleiaFeedbackPanel feedbackPanel) {
@@ -76,7 +80,9 @@ public abstract class EditPropertiesPanel extends Panel {
 
         ObjectContext Context = content.getObject().getObjectContext();
         ContentDao contentDao = new ContentDao(Context);
+        ContentVersionDao contentVersionDao = new ContentVersionDao(Context);
         contentId = contentDao.getPK(content.getObject());
+        currentContentVersionId = contentVersionDao.getPK(content.getObject().getLastVersion()) ;
         logger.debug("ID de l'objet en cours d'édition dans le contexte local : " + contentId);
 
         this.actionsOnContent = actionsOnContent;
@@ -190,7 +196,7 @@ public abstract class EditPropertiesPanel extends Panel {
 
         // Le panneau de traduction automatique du module
 //        moduleTranslationPanel = new ModuleTranslationPanel("moduleTranslation","", locale, Context) {
-        moduleTranslationPanel = new ModuleTranslationPanel("moduleTranslation").setOutputMarkupId(true);
+        moduleTranslationPanel = new ModuleTranslationPanel("moduleTranslation", currentContentVersionId).setOutputMarkupId(true);
         /*{
             @Override
             public void renderHead(IHeaderResponse response) {
