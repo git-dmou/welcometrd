@@ -24,8 +24,6 @@ import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.OnChangeAjaxBehavior;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
-import org.apache.wicket.markup.head.IHeaderResponse;
-import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
@@ -191,7 +189,9 @@ public abstract class EditPropertiesPanel extends Panel {
         add(versionsPanel.setOutputMarkupId(true));
 
         // Le panneau de traduction automatique du module
-        moduleTranslationPanel = new ModuleTranslationPanel("moduleTranslation","", locale, Context) {
+//        moduleTranslationPanel = new ModuleTranslationPanel("moduleTranslation","", locale, Context) {
+        moduleTranslationPanel = new ModuleTranslationPanel("moduleTranslation").setOutputMarkupId(true);
+        /*{
             @Override
             public void renderHead(IHeaderResponse response) {
                 super.renderHead(response);
@@ -201,7 +201,7 @@ public abstract class EditPropertiesPanel extends Panel {
                                 "$('[id^=parameters]').addClass(\"active\");" +
                                 "$('[id^=resources]').removeClass(\"active\");"));
             }
-        }.setOutputMarkupId(true);
+        }.setOutputMarkupId(true);*/
 //        moduleTranslationPanel.setVisible(true);
         add(moduleTranslationPanel) ;
 

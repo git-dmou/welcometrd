@@ -1,47 +1,9 @@
 <wicket:panel xmlns:wicket="http://wicket.apache.org">
-    <form wicket:id="translationForm" class="input-thaleia mb-3 fadeIn delayed">
-        <h4 class="mb-5 fadeInUp"><wicket:message key="TranslationTitle">Traduire le module dans une autre langue</wicket:message></h4>
 
-        <!--Locale selector origin-->
-        <h6 class="mb-5 fadeInUp"><wicket:message key="OrigLanguage">langue d'origine</wicket:message></h6>
-        <button class="btn btn-link btn-primary dropdown-toggle border-0 ml-3 text-decoration-none"
-                id="content-lang-selector-btn" type="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-            <span wicket:id="currentSelectedLang" class="mr-1"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <div id="content-lang-selector-dropdown" class="dropdown-menu">
-            <li wicket:id="OrigLangSelectorRow">
-                <a wicket:id="LangSelectorLinkOrig" class="dropdown-item" href="#" onclick="closeDropdown()">
-                    <span wicket:id="LinktextLangOrig"></span>
-                </a>
-            </li>
+    <h4 class="mb-5 fadeInUp"><wicket:message key="TranslationTitle">Traduire le module dans une autre langue</wicket:message></h4>
+
+        <div id="translationForm" class="input-thaleia mb-3 fadeIn delayed">
+            <button type="submit" onclick="translate(this,'FR','ES')"><wicket:message key="TranslationButton">Traduire</wicket:message></button>
         </div>
-
-        <!--Locale Selector target-->
-        <h6 class="mb-5 fadeInUp"><wicket:message key="TargetLanguage">langue cible</wicket:message></h6>
-        <button class="btn btn-link btn-primary dropdown-toggle border-0 ml-3 text-decoration-none"
-                id="target-lang-selector-btn" type="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-            <span wicket:id="targetSelectedLang" class="mr-1"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <div id="target-lang-selector-dropdown" class="dropdown-menu">
-            <li wicket:id="TargetLangSelectorRow">
-                <a wicket:id="LangSelectorLinkTarget" class="dropdown-item" href="#" onclick="closeDropdown()">
-                    <span wicket:id="LinktextLangTarget"></span>
-                </a>
-            </li>
-        </div>
-
-        <script>
-            function closeDropdown() {
-                $('.dropdown-menu').dropdown('hide')
-            }
-        </script>
-
-
-
-    </form>
 
 </wicket:panel>
