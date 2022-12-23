@@ -51,20 +51,20 @@ public abstract class EditPropertiesPanel extends Panel {
     public static final String SCORM_COMMUNICATION_PROPERTY_NAME = "SCORMCommunication";
     public static final String MASTERYSCORE_PROPERTY_NAME = "PassageNote";
     protected static final Logger logger = Logger.getLogger(EditPropertiesPanel.class);
-    private final Form<ContentVersion> form;
-    private final Component title;
-    private final int contentId;
-    private final ActionsOnContent actionsOnContent;
-    private final ThaleiaFeedbackPanel feedbackPanel;
-    private final MarkupContainer saveButton;
-    private final MarkupContainer cancelButton;
-    private final Component versionsPanel;
+    protected final Form<ContentVersion> form;
+    protected final Component title;
+    protected final int contentId;
+    protected final ActionsOnContent actionsOnContent;
+    protected final ThaleiaFeedbackPanel feedbackPanel;
+    protected final MarkupContainer saveButton;
+    protected final MarkupContainer cancelButton;
+    protected final Component versionsPanel;
 
-    private Component moduleTranslationPanel;
-    private int contentVersionId;
-    private int currentContentVersionId;
-    private boolean editedNotSaved = false;
-    private final IModel<Locale> locale;
+    protected Component moduleTranslationPanel;
+    protected int contentVersionId;
+    protected int currentContentVersionId;
+    protected boolean editedNotSaved = false;
+    protected final IModel<Locale> locale;
 
 //    private ContentVersionDao contentVersionDao;
 
@@ -194,26 +194,13 @@ public abstract class EditPropertiesPanel extends Panel {
         versionsPanel = new RevisionsListPanel("versions", content, actionsOnContent, locale, feedbackPanel, false, showSourceLinks());
         add(versionsPanel.setOutputMarkupId(true));
 
-        // Le panneau de traduction automatique du module
-//        moduleTranslationPanel = new ModuleTranslationPanel("moduleTranslation","", locale, Context) {
+       /* // Le panneau de traduction automatique du module
         moduleTranslationPanel = new ModuleTranslationPanel("moduleTranslation", currentContentVersionId).setOutputMarkupId(true);
-        /*{
-            @Override
-            public void renderHead(IHeaderResponse response) {
-                super.renderHead(response);
-                response.render(new OnDomReadyHeaderItem(
-                        "$('[id^=modules]').removeClass(\"active\");" +
-                                "$('[id^=create]').removeClass(\"active\");" +
-                                "$('[id^=parameters]').addClass(\"active\");" +
-                                "$('[id^=resources]').removeClass(\"active\");"));
-            }
-        }.setOutputMarkupId(true);*/
-//        moduleTranslationPanel.setVisible(true);
-        add(moduleTranslationPanel) ;
+        add(moduleTranslationPanel) ;*/
 
     }
 
-    private void addOrReplacePropertiesEditorPanels() {
+    protected void addOrReplacePropertiesEditorPanels() {
         // Récupération de la locale de l'IHM
         LocaleDao localeDao = new LocaleDao(ThaleiaSession.get().getContextService().getContextSingleton());
         IModel<Locale> IhmLocale = Model.of(localeDao.getLocale(ThaleiaSession.get().getLocale()));
@@ -258,7 +245,7 @@ public abstract class EditPropertiesPanel extends Panel {
     /**
      * Initialise le modèle de la ContentVersion à éditer dans ce panneau, à partir du contentId : fabrique une ContentVersion dans un nouveau contexte temporaire.
      */
-    private void initContentVersionModel() {
+    protected void initContentVersionModel() {
         // On fabrique un contexte d'édition pour sauver ou annuler les modifications sans effet sur les autres objets en cours d'édition
         ObjectContext objectContext = ThaleiaSession.get().getContextService().getNewContext();
 
@@ -273,7 +260,7 @@ public abstract class EditPropertiesPanel extends Panel {
         setDefaultModel(contentVersionCompoundPropertyModel);
     }
 
-    private ContentVersion loadModelFromContentVersionId(ObjectContext objectContext) {
+    protected ContentVersion loadModelFromContentVersionId(ObjectContext objectContext) {
         // On tente de charger la contentVersion, si elle existe toujours dans ce contexte avec un ID temporaire
         ContentVersionDao contentVersionDao = new ContentVersionDao(objectContext);
         ContentDao contentDao = new ContentDao(objectContext);
@@ -310,7 +297,7 @@ public abstract class EditPropertiesPanel extends Panel {
      * @param choice1 dans les LocalizedProperties, le nom de la clé pour la valeur de ce choix.
      * @param choice2 dans les LocalizedProperties, le nom de la clé pour la valeur de ce choix.
      */
-    private void addSelectorPanelIfPropertyExists(IModel<Locale> locale, String scormPanelId, String choice1,
+    protected void addSelectorPanelIfPropertyExists(IModel<Locale> locale, String scormPanelId, String choice1,
                                                   String choice2, String contentPropertyUnlocalizedName) {
         if (isPropertyDefined(contentPropertyUnlocalizedName)) {
             List<String> choices = new ArrayList<>();
@@ -329,7 +316,7 @@ public abstract class EditPropertiesPanel extends Panel {
     /**
      * @return true si la propriété demandée  est associée au type de contenu édité
      */
-    private boolean isPropertyDefined(String contentPropertyUnlocalizedName) {
+    protected boolean isPropertyDefined(String contentPropertyUnlocalizedName) {
         return ThaleiaSession.get().getContentPropertyService().findContentProperty(getModel().getObject().getContentType(), contentPropertyUnlocalizedName)
                 != null;
     }
@@ -339,7 +326,7 @@ public abstract class EditPropertiesPanel extends Panel {
      *
      * @param locale Locale de l'utilisateur courant.
      */
-    private void addButtons(IModel<Locale> locale) {
+    protected void addButtons(IModel<Locale> locale) {
         IModel<Content> content = new LoadableDetachableModel<>() {
             @Override
             protected Content load() {
@@ -444,7 +431,7 @@ public abstract class EditPropertiesPanel extends Panel {
      */
     protected abstract void onEditPublication(IModel<Publication> model);
 
-    private void error(IValidatable<String> validatable, String errorKey) {
+    protected void error(IValidatable<String> validatable, String errorKey) {
         ValidationError error = new ValidationError();
         error.addKey(errorKey);
         validatable.error(error);
@@ -453,7 +440,7 @@ public abstract class EditPropertiesPanel extends Panel {
     /**
      * Ajoute un panneau d'édition de valeur d'une propriété, d'après une liste de choix.
      */
-    private void addEditSelectorPropertyPanel(String id, String contentPropertyUnlocalizedName,
+    protected void addEditSelectorPropertyPanel(String id, String contentPropertyUnlocalizedName,
                                               Form<ContentVersion> form, IModel<Locale> locale, List<String> choices) {
         // Si la description est nulle, alors on fixe une valeur vide, sinon le
         // panneau d'édition de cette propriété ne s'affichera pas;
@@ -486,7 +473,7 @@ public abstract class EditPropertiesPanel extends Panel {
      * @return le textField qui a été généré, ou null si aucun n'a été généré (ce qui arrive si la propriété demandée
      * n'a pas été trouvée)
      */
-    private TextField<String> addEditTextPropertyPanel(String id, String contentPropertyUnlocalizedName,
+    protected TextField<String> addEditTextPropertyPanel(String id, String contentPropertyUnlocalizedName,
                                                        Form<ContentVersion> form, IModel<Locale> locale) {
         // Le panneau d'édition de cette propriété.
         EditTextPropertyPanel panel = new EditTextPropertyPanel(id, contentPropertyUnlocalizedName, getModel(),
@@ -504,7 +491,7 @@ public abstract class EditPropertiesPanel extends Panel {
     /**
      * Ajoute un panneau d'édition de propriété, de type texte.
      */
-    private void addEditTextAreaPropertyPanel(String id, String contentPropertyUnlocalizedName,
+    protected void addEditTextAreaPropertyPanel(String id, String contentPropertyUnlocalizedName,
                                               Form<ContentVersion> form, IModel<Locale> locale) {
         // Le panneau d'édition de cette propriété.
         EditTextAreaPropertyPanel panel = new EditTextAreaPropertyPanel(id, contentPropertyUnlocalizedName,
@@ -528,7 +515,7 @@ public abstract class EditPropertiesPanel extends Panel {
      * Méthode à appeler si une valeur a été modifiée dans un champ par
      * l'utilisateur.
      */
-    private void onFieldChange(AjaxRequestTarget target) {
+    protected void onFieldChange(AjaxRequestTarget target) {
         logger.debug("Champ modifié.");
         editedNotSaved = true;
         // On recharge l'état présenté des boutons enregistrer et annuler.
@@ -539,7 +526,7 @@ public abstract class EditPropertiesPanel extends Panel {
     /**
      * @return true si le bouton Enregistrer/Annuler peut être activé.
      */
-    private boolean isButtonCanBeActivated() {
+    protected boolean isButtonCanBeActivated() {
         try {
             // Si le contenu n'a pas été modifié, alors n'active pas le bouton
             if (!editedNotSaved) {
@@ -613,7 +600,7 @@ public abstract class EditPropertiesPanel extends Panel {
         }
     }
 
-    private MarkupContainer getSaveButton() {
+    protected MarkupContainer getSaveButton() {
         return (MarkupContainer) new AjaxLink<ContentVersion>("save") {
 
             @Override
@@ -648,7 +635,7 @@ public abstract class EditPropertiesPanel extends Panel {
     /**
      * Ajoute tous les composants Wickets de la page à la target, afin de rafraichir tous les éléments présentés dans le panneau.
      */
-    private void addAllComponents(AjaxRequestTarget target) {
+    protected void addAllComponents(AjaxRequestTarget target) {
         target.add(form);
         target.add(title);
         target.add(versionsPanel);
@@ -657,7 +644,7 @@ public abstract class EditPropertiesPanel extends Panel {
         target.add(feedbackPanel);
     }
 
-    private MarkupContainer getCancelButton() {
+    protected MarkupContainer getCancelButton() {
         return (MarkupContainer) new AjaxLink<ContentVersion>("cancel") {
 
             @Override
@@ -680,7 +667,7 @@ public abstract class EditPropertiesPanel extends Panel {
     }
 
     @SuppressWarnings("unchecked")
-    private IModel<ContentVersion> getModel() {
+    protected IModel<ContentVersion> getModel() {
         return (IModel<ContentVersion>) getDefaultModel();
     }
 
@@ -693,7 +680,7 @@ public abstract class EditPropertiesPanel extends Panel {
     /**
      * Ajout du bouton Retour.
      */
-    private void addBtnBack() {
+    protected void addBtnBack() {
         add(new Link<>("btnBack") {
             public void onClick() {
                 onOut();

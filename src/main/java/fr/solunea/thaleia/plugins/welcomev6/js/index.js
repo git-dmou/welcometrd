@@ -1,3 +1,5 @@
+const DEBUG = true;
+
 // Activation des variables CSS
 cssVars({
     rootElement: document, // default
